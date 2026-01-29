@@ -19,8 +19,11 @@ class Tokenizer():
             splitted = response.text.split(' ')
 
         for i in range(len(splitted)):
-            self.wordMap[splitted[i]] = i
-            self.wordMap2[i] = splitted[i]
+            splitted[i] = splitted[i].replace(".", "")
+            splitted[i] = splitted[i].replace("?", "")
+            splitted[i] = splitted[i].replace("!", "")
+            self.wordMap[splitted[i].lower()] = i
+            self.wordMap2[i] = splitted[i].lower()
             
                 
             
@@ -31,6 +34,10 @@ class Tokenizer():
             self.wordMap2[len(self.wordMap) + 1] = word
 
     def encode(self, text):
+        text = text.lower()
+        text = text.replace(".", "")
+        text = text.replace("?", "")
+        text = text.replace("!", "")
         encoded_list = []
         splitted_text = text.split()
         for token in splitted_text:
