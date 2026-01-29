@@ -2,10 +2,11 @@ from tokenizer import Tokenizer
 from funcs import pad_sequence
 
 tokenizer = Tokenizer()
-tokenizer.build_vocab("https://example-files.online-convert.com/document/txt/example.txt", fromWeb=True)
-
-enc = tokenizer.encode("The names are also used to refer.")
-enc2 = tokenizer.encode("John Doe is sometimes used to refer to a typical male in other contexts as")
+#tokenizer.build_vocab("https://example-files.online-convert.com/document/txt/example.txt", fromWeb=True)
+t = ["me and the bird singing on the floor."]
+tokenizer.build_vocab_var(t)
+enc = tokenizer.encode("me and the bird floor")
+#enc2 = tokenizer.encode("John Doe is sometimes used to refer to a typical male in other contexts as")
 
 #l = [enc, enc2]
 
